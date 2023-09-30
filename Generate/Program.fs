@@ -4,8 +4,10 @@ open System.IO
 let separator ="\t"
 let culture = System.Globalization.CultureInfo.InvariantCulture
 
+let k = int64 1024
+
 let generate fileName sizeMB=
-    let size = sizeMB * 1024 * 1024
+    let size = sizeMB * k * k
     File.Delete(fileName)
     use output = File.OpenWrite(fileName)
     use writer = new StreamWriter(output)
